@@ -140,7 +140,21 @@
       "when": "Oct 2020 – Jun 2024"
     }
   ],
-  "experience": [],
+  "experience": [
+    {
+      "title": "The Chinese University of Hong Kong, Shenzhen",
+      "department": "School of Science and Engineering",
+      "website_summary": "Research on machine learning for electronic design automation, with a focus on design optimization.",
+      "detail": "Visiting Student",
+      "when": "Apr 2026 – Present"
+    },
+    {
+      "title": "Primarius Technologies Co., Ltd.",
+      "website_summary": "Research and development on routing automation for advanced packaging EDA.",
+      "detail": "R&D Engineer Intern",
+      "when": "Sep 2026 – Present"
+    }
+  ],
   "projects": [],
   "honors": [
     {

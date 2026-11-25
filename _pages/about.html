@@ -69,13 +69,6 @@ permalink: /
   </section>
 {% endif %}
 
-{% if academic.experience.size > 0 %}
-  <section class="academic-section" aria-labelledby="experience-heading">
-    <h2 id="experience-heading">Academic Experience</h2>
-    {% include academic-timeline.liquid rows=academic.experience %}
-  </section>
-{% endif %}
-
 {% if academic.honors.size > 0 %}
   <section class="academic-section" aria-labelledby="honors-heading">
     <h2 id="honors-heading">Honors and Awards</h2>
