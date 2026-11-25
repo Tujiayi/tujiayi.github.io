@@ -16,7 +16,7 @@
       <p class="academic-venue">
         {% assign conference_year = paper.venue_year | default: paper.publication_year %}
         {% if paper.abbreviation or conference_year %}
-          <strong class="academic-conference">{{ paper.abbreviation | escape }}{% if paper.abbreviation and conference_year %} {% endif %}{{ conference_year }}</strong>
+          <strong class="academic-conference">{{ paper.abbreviation | escape }}{% if paper.abbreviation and conference_year %}&nbsp;{% endif %}{{ conference_year }}</strong>
         {% endif %}
         <span>{{ paper.venue | escape }}</span>
         {% if paper.status %}<span class="academic-status">{{ paper.status | escape }}</span>{% endif %}
