@@ -21,18 +21,22 @@
         <span>{{ paper.venue | escape }}</span>
         {% if paper.status %}<span class="academic-status">{{ paper.status | escape }}</span>{% endif %}
       </p>
-      {% if paper.doi_url or paper.paper_url or paper.code_url %}
+      {% assign show_bibtex = false %}
+      {% if paper.bibtex and paper.status == 'Published' %}{% assign show_bibtex = true %}{% endif %}
+      {% if paper.doi_url or paper.paper_url or show_bibtex or paper.code_url %}
         <ul class="academic-links">
           {% if paper.doi_url %}<li><a href="{{ paper.doi_url | escape }}">DOI</a></li>{% endif %}
           {% if paper.paper_url %}<li><a href="{{ paper.paper_url | escape }}">Paper</a></li>{% endif %}
+          {% if show_bibtex %}
+            <li class="academic-bibtex-item">
+              <details class="academic-bibtex">
+                <summary>BibTeX</summary>
+                <pre><code>{{ paper.bibtex | escape }}</code></pre>
+              </details>
+            </li>
+          {% endif %}
           {% if paper.code_url %}<li><a href="{{ paper.code_url | escape }}">Code</a></li>{% endif %}
         </ul>
-      {% endif %}
-      {% if paper.bibtex and paper.status == 'Published' %}
-        <details class="academic-bibtex">
-          <summary>BibTeX</summary>
-          <pre><code>{{ paper.bibtex | escape }}</code></pre>
-        </details>
       {% endif %}
     </li>
   {% endfor %}

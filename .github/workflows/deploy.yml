@@ -36,6 +36,7 @@ jobs:
       - name: Check required pages
         run: |
           test -s _site/index.html
+          test -s _site/awards/index.html
           test -s _site/publications/index.html
           test -s _site/research/index.html
           test -s _site/assets/img/portrait.jpg

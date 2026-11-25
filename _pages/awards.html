@@ -1,0 +1,14 @@
+---
+layout: academic
+title: Honors and Awards
+permalink: /awards/
+nav: false
+---
+<header class="academic-hero">
+  <h1>Honors and Awards</h1>
+</header>
+
+{% assign honors = site.data.academic.honors %}
+{% if honors.size > 0 %}
+  {% include academic-timeline.liquid rows=honors item_heading="h2" %}
+{% endif %}

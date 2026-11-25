@@ -112,7 +112,7 @@ html[data-theme="dark"] {
 
 .academic-records h2,
 .academic-records h3,
-.academic-timeline h3 {
+.academic-timeline :is(h2, h3, h4) {
   margin: 0 0 .3rem;
   color: var(--global-theme-color);
   font-size: 1.14rem;
@@ -179,8 +179,9 @@ html[data-theme="dark"] {
   outline-offset: .22rem;
 }
 
-.academic-bibtex {
-  margin-top: .35rem;
+.academic-bibtex-item {
+  min-width: 0;
+  max-width: 100%;
 }
 
 .academic-bibtex summary {

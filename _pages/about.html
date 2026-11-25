@@ -79,7 +79,15 @@ permalink: /
 {% if academic.honors.size > 0 %}
   <section class="academic-section" aria-labelledby="honors-heading">
     <h2 id="honors-heading">Honors and Awards</h2>
-    {% include academic-timeline.liquid rows=academic.honors %}
+    {% if academic.featured_honors.awards.size > 0 %}
+      <h3>Awards</h3>
+      {% include academic-timeline.liquid rows=academic.featured_honors.awards item_heading="h4" %}
+    {% endif %}
+    {% if academic.featured_honors.scholarships.size > 0 %}
+      <h3>Scholarships</h3>
+      {% include academic-timeline.liquid rows=academic.featured_honors.scholarships item_heading="h4" %}
+    {% endif %}
+    <p><a href="{{ '/awards/' | relative_url }}">View all honors and awards</a></p>
   </section>
 {% endif %}
 

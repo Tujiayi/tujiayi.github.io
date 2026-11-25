@@ -1,8 +1,9 @@
 <ul class="academic-timeline">
+  {% assign item_heading = include.item_heading | default: 'h3' %}
   {% for item in include.rows %}
     <li>
       <div class="academic-timeline-heading">
-        <h3>{{ item.title | escape }}</h3>
+        <{{ item_heading }}>{{ item.title | escape }}</{{ item_heading }}>
         {% if item.date %}
           <time datetime="{{ item.date | escape }}">{{ item.when | escape }}</time>
         {% elsif item.when %}
