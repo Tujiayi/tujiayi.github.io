@@ -1,0 +1,15 @@
+---
+layout: academic
+title: CV
+permalink: /cv/
+nav: false
+nav_order: 3
+published: false
+cv_pdf:
+---
+<header class="academic-hero">
+  <h1>Curriculum Vitae</h1>
+</header>
+{% if page.cv_pdf %}
+  <p><a class="academic-action" href="{{ page.cv_pdf | relative_url | escape }}">Download CV (PDF)</a></p>
+{% endif %}

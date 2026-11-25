@@ -19,3 +19,9 @@ vendor
 # Python bytecode from bin/ helper scripts
 __pycache__/
 *.pyc
+
+# Local academic source and credentials belong outside the site repository.
+/data/
+profile.json
+.env
+.env.*

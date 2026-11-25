@@ -1,0 +1,39 @@
+<ol class="academic-records">
+  {% for paper in include.papers %}
+    <li id="{{ paper.id | escape }}">
+      {% if include.compact %}
+        <h3>{{ paper.title | escape }}</h3>
+      {% else %}
+        <h2>{{ paper.title | escape }}</h2>
+      {% endif %}
+      <p class="academic-authors">
+        {% for author in paper.authors -%}
+          {%- if author.highlight -%}<strong>{{ author.name | escape }}</strong>
+          {%- else -%}{{ author.name | escape }}{%- endif -%}
+          {%- unless forloop.last -%}, {% endunless -%}
+        {%- endfor %}
+      </p>
+      <p class="academic-venue">
+        {% assign conference_year = paper.venue_year | default: paper.publication_year %}
+        {% if paper.abbreviation or conference_year %}
+          <strong class="academic-conference">{{ paper.abbreviation | escape }}{% if paper.abbreviation and conference_year %} {% endif %}{{ conference_year }}</strong>
+        {% endif %}
+        <span>{{ paper.venue | escape }}</span>
+        {% if paper.status %}<span class="academic-status">{{ paper.status | escape }}</span>{% endif %}
+      </p>
+      {% if paper.doi_url or paper.paper_url or paper.code_url %}
+        <ul class="academic-links">
+          {% if paper.doi_url %}<li><a href="{{ paper.doi_url | escape }}">DOI</a></li>{% endif %}
+          {% if paper.paper_url %}<li><a href="{{ paper.paper_url | escape }}">Paper</a></li>{% endif %}
+          {% if paper.code_url %}<li><a href="{{ paper.code_url | escape }}">Code</a></li>{% endif %}
+        </ul>
+      {% endif %}
+      {% if paper.bibtex and paper.status == 'Published' %}
+        <details class="academic-bibtex">
+          <summary>BibTeX</summary>
+          <pre><code>{{ paper.bibtex | escape }}</code></pre>
+        </details>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ol>

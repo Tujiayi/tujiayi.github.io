@@ -1,0 +1,15 @@
+---
+layout: academic
+title: Publications
+permalink: /publications/
+nav: true
+nav_order: 1
+---
+<header class="academic-hero">
+  <h1>Publications</h1>
+</header>
+
+{% assign papers = site.data.academic.publications %}
+{% if papers.size > 0 %}
+  {% include academic-publications.liquid papers=papers %}
+{% endif %}

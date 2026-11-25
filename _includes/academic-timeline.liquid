@@ -1,0 +1,23 @@
+<ul class="academic-timeline">
+  {% for item in include.rows %}
+    <li>
+      <div class="academic-timeline-heading">
+        <h3>{{ item.title | escape }}</h3>
+        {% if item.date %}
+          <time datetime="{{ item.date | escape }}">{{ item.when | escape }}</time>
+        {% elsif item.when %}
+          <span>{{ item.when | escape }}</span>
+        {% endif %}
+      </div>
+      {% if item.detail or item.department or item.track or item.academic_year %}
+        <p class="academic-timeline-detail">
+          {% if item.detail %}<span>{{ item.detail | escape }}</span>{% endif %}
+          {% if item.department %}<span>{{ item.department | escape }}</span>{% endif %}
+          {% if item.track %}<span>{{ item.track | escape }}</span>{% endif %}
+          {% if item.academic_year %}<span>{{ item.academic_year | escape }}</span>{% endif %}
+        </p>
+      {% endif %}
+      {% if item.website_summary %}<p class="academic-prose">{{ item.website_summary | escape }}</p>{% endif %}
+    </li>
+  {% endfor %}
+</ul>

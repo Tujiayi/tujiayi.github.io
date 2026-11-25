@@ -1,0 +1,102 @@
+---
+layout: academic
+title: About
+permalink: /
+---
+{% assign academic = site.data.academic %}
+{% assign profile = academic.profile %}
+{% assign selected = academic.publications | where: 'selected', true %}
+
+<header class="academic-hero{% if profile.portrait %} academic-hero-with-portrait{% endif %}">
+  <div>
+    <h1>{{ profile.name | default: site.title | escape }}</h1>
+    {% if profile.name_zh %}
+      <p class="academic-name-zh" lang="zh-Hans">{{ profile.name_zh | escape }}</p>
+    {% endif %}
+    {% if profile.position or profile.affiliation %}
+      <p class="academic-affiliation">
+        {% if profile.position %}<span>{{ profile.position | escape }}</span>{% endif %}
+        {% if profile.affiliation %}<span>{{ profile.affiliation | escape }}</span>{% endif %}
+      </p>
+    {% endif %}
+    {% if profile.biography %}
+      <p class="academic-prose">{{ profile.biography | escape }}</p>
+    {% endif %}
+  </div>
+  {% if profile.portrait %}
+    <img class="academic-portrait" src="{{ profile.portrait | relative_url | escape }}"
+      width="600" height="840" alt="Portrait{% if profile.name %} of {{ profile.name | escape }}{% endif %}">
+  {% endif %}
+</header>
+
+{% if academic.research_interests.size > 0 %}
+  <section class="academic-section" aria-labelledby="interest-heading">
+    <h2 id="interest-heading">Research Interests</h2>
+    <ul class="academic-topics">
+      {% for topic in academic.research_interests %}<li>{{ topic | escape }}</li>{% endfor %}
+    </ul>
+  </section>
+{% endif %}
+
+{% if selected.size > 0 %}
+  <section class="academic-section" aria-labelledby="selected-heading">
+    <h2 id="selected-heading">Publications</h2>
+    {% include academic-publications.liquid papers=selected compact=true %}
+    <p><a href="{{ '/publications/' | relative_url }}">View all publications</a></p>
+  </section>
+{% endif %}
+
+{% if academic.news.size > 0 %}
+  <section class="academic-section" aria-labelledby="news-heading">
+    <h2 id="news-heading">Academic News</h2>
+    <ul class="academic-news">
+      {% assign latest_news = academic.news | sort: 'date' | reverse %}
+      {% for item in latest_news limit: 5 %}
+        <li>
+          <time datetime="{{ item.date | escape }}">{{ item.date | date: '%b %d, %Y' }}</time>
+          {% if item.url %}<a href="{{ item.url | escape }}">{{ item.title | escape }}</a>
+          {% else %}<span>{{ item.title | escape }}</span>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
+
+{% if academic.education.size > 0 %}
+  <section class="academic-section" aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    {% include academic-timeline.liquid rows=academic.education %}
+  </section>
+{% endif %}
+
+{% if academic.experience.size > 0 %}
+  <section class="academic-section" aria-labelledby="experience-heading">
+    <h2 id="experience-heading">Academic Experience</h2>
+    {% include academic-timeline.liquid rows=academic.experience %}
+  </section>
+{% endif %}
+
+{% if academic.honors.size > 0 %}
+  <section class="academic-section" aria-labelledby="honors-heading">
+    <h2 id="honors-heading">Honors and Awards</h2>
+    {% include academic-timeline.liquid rows=academic.honors %}
+  </section>
+{% endif %}
+
+{% if academic.contacts.size > 0 %}
+  <section class="academic-section" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Academic Contact</h2>
+    <ul class="academic-links academic-contact-links">
+      {% for contact in academic.contacts %}
+        {% case contact.text %}
+          {% when 'GitHub' %}{% assign icon = 'fa-brands fa-github' %}
+          {% when 'Google Scholar' %}{% assign icon = 'fa-brands fa-google-scholar' %}
+          {% when 'ORCID' %}{% assign icon = 'fa-brands fa-orcid' %}
+          {% when 'DBLP' %}{% assign icon = 'fa-solid fa-book-open' %}
+          {% else %}{% assign icon = 'fa-solid fa-envelope' %}
+        {% endcase %}
+        <li><a href="{{ contact.url | escape }}"><i class="{{ icon }}" aria-hidden="true"></i>{{ contact.text | escape }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

@@ -1,0 +1,36 @@
+---
+layout: academic
+title: Research
+permalink: /research/
+nav: true
+nav_order: 2
+---
+{% assign academic = site.data.academic %}
+<header class="academic-hero">
+  <h1>Research</h1>
+</header>
+
+{% if academic.research_interests.size > 0 %}
+  <section class="academic-section" aria-labelledby="interest-heading">
+    <h2 id="interest-heading">Research Interests</h2>
+    <ul class="academic-topics">
+      {% for topic in academic.research_interests %}<li>{{ topic | escape }}</li>{% endfor %}
+    </ul>
+  </section>
+{% endif %}
+{% if academic.projects.size > 0 %}
+  <section class="academic-section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projects</h2>
+    <ul class="academic-records">
+      {% for project in academic.projects %}
+        <li>
+          <h3>{{ project.name | escape }}</h3>
+          {% if project.description %}<p class="academic-prose">{{ project.description | escape }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}
+{% if academic.publications.size > 0 %}
+  <p><a href="{{ '/publications/' | relative_url }}">View publications</a></p>
+{% endif %}
