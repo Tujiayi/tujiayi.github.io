@@ -87,7 +87,7 @@
     {
       "id": "paper-bayesian-rl-tuning",
       "title": "Synergistic Bayesian Optimization and Reinforcement Learning with Bidirectional Interaction for Efficient VLSI Constraint Tuning",
-      "venue": "Asia and South Pacific Design Automation Conference",
+      "venue": "IEEE/ACM Asia and South Pacific Design Automation Conference",
       "abbreviation": "ASP-DAC",
       "pages": "377--383",
       "authors": [
@@ -123,7 +123,7 @@
       "paper_url": "https://ieeexplore.ieee.org/document/11420424",
       "doi": "10.1109/ASP-DAC66049.2026.11420424",
       "doi_url": "https://doi.org/10.1109/ASP-DAC66049.2026.11420424",
-      "bibtex": "@inproceedings{paper-bayesian-rl-tuning,\n  title = {{Synergistic Bayesian Optimization and Reinforcement Learning with Bidirectional Interaction for Efficient VLSI Constraint Tuning}},\n  author = {Jiayi Tu and Jindong Tu and Yuxuan Cai and Yi Zhang and Meng Zhang and Tinghuan Chen},\n  booktitle = {Asia and South Pacific Design Automation Conference},\n  year = {2026},\n  pages = {377--383},\n  doi = {10.1109/ASP-DAC66049.2026.11420424},\n  url = {https://ieeexplore.ieee.org/document/11420424},\n}"
+      "bibtex": "@inproceedings{paper-bayesian-rl-tuning,\n  title = {{Synergistic Bayesian Optimization and Reinforcement Learning with Bidirectional Interaction for Efficient VLSI Constraint Tuning}},\n  author = {Jiayi Tu and Jindong Tu and Yuxuan Cai and Yi Zhang and Meng Zhang and Tinghuan Chen},\n  booktitle = {IEEE/ACM Asia and South Pacific Design Automation Conference},\n  year = {2026},\n  pages = {377--383},\n  doi = {10.1109/ASP-DAC66049.2026.11420424},\n  url = {https://ieeexplore.ieee.org/document/11420424},\n}"
     }
   ],
   "education": [
