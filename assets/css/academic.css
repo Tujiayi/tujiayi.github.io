@@ -131,6 +131,13 @@ html[data-theme="dark"] {
   line-height: 1.4;
 }
 
+.academic-paper-link {
+  display: inline-block;
+  margin-inline-start: .4rem;
+  font-size: .875rem;
+  font-weight: 500;
+}
+
 .academic-authors,
 .academic-venue {
   margin: 0 0 .5rem;
@@ -168,8 +175,7 @@ html[data-theme="dark"] {
   gap: .3rem 1rem;
 }
 
-.academic-shell a,
-.academic-bibtex summary {
+.academic-shell a {
   text-decoration: underline;
   text-underline-offset: .19em;
 }
@@ -186,27 +192,9 @@ html[data-theme="dark"] {
   text-align: center;
 }
 
-.academic-shell :is(a, summary):focus-visible {
+.academic-shell a:focus-visible {
   outline: 2px solid var(--global-theme-color);
   outline-offset: .22rem;
-}
-
-.academic-bibtex-item {
-  min-width: 0;
-  max-width: 100%;
-}
-
-.academic-bibtex summary {
-  width: fit-content;
-  color: var(--global-theme-color);
-  cursor: pointer;
-}
-
-.academic-bibtex pre {
-  max-width: 100%;
-  overflow-x: auto;
-  padding: .8rem 1rem;
-  background: var(--academic-surface);
 }
 
 .academic-news li {
